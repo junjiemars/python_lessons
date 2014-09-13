@@ -9,26 +9,39 @@ def p3(n):
     The prime factors of 13195 are 5, 7, 13 and 29.
     What is the largest prime factor of the number 600851475143 ?
     """
-    print('%d is a prime that is %s' % (n, is_prime(n, 2)))
-
-def factor(n, start):
     L = []
-    for i in range(start, n):
-        if not is_prime(i):
-            continue
-        L.append(i)
+    factor(n, L, 2, n)
+
+def factor(n, L, begin, end):
+    #if begin >= end:
+    #    print('Progress of the Problem 3th is %s' % L)
+
+    for i in range(begin, end):
+        if is_prime(i, i-1) and n % i == 0:
+            L.append(i)
+            t = 1
+            for m in L:
+                t *= m
+            if n == t:
+                print('Answer of the Problem 3th is %s' % L)
+                return
+            factor(n, L, i+1, n % i)
 
 
-def is_prime(n, start):
-    ## n > start
-    for i in range(start, n):
+
+def is_prime(n, begin):
+    if n < begin:
+        return False
+
+    for i in range(begin, n):
         f = n / i
         if f * i == n and f < n :
             return False
 
     return True
 
+
 if __name__ == '__main__':
     ##p3(13195)
-    p3(61)
+    p3(600851475143)
     sys.exit(0)
