@@ -12,11 +12,10 @@ def p3(n):
     L = []
     factor(n, L, 2, n)
 
-def factor(n, L, begin, end):
-    #if begin >= end:
-    #    print('Progress of the Problem 3th is %s' % L)
 
-    for i in range(begin, end):
+def factor(n, L, begin, end):
+    go = False
+    for i in xrange(begin, end):
         if is_prime(i, i-1) and n % i == 0:
             L.append(i)
             t = 1
@@ -24,10 +23,13 @@ def factor(n, L, begin, end):
                 t *= m
             if n == t:
                 print('Answer of the Problem 3th is %s' % L)
-                return
-            factor(n, L, i+1, n % i)
-
-
+            else:
+                begin = i+1
+                end = n / i
+                go = True
+                break
+    if go:
+        factor(n, L, begin, end)
 
 def is_prime(n, begin):
     if n < begin:
@@ -35,7 +37,7 @@ def is_prime(n, begin):
 
     for i in range(begin, n):
         f = n / i
-        if f * i == n and f < n :
+        if f * i == n and f < n:
             return False
 
     return True
