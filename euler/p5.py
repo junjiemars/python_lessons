@@ -9,9 +9,8 @@ def p5(n):
     from 1 to 10 without any remainder.
     What is the smallest positive number that is evenly divisible by all
     of the numbers from 1 to 20?
-    :param n:
-    :return:
     """
+
     i = n
     while True:
         divisible = True
