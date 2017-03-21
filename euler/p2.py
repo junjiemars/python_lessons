@@ -14,11 +14,12 @@ def p2(n):
     fibonacci(n, 1, 2, 2)
 
 def fibonacci(n, first, second, result):
+    """fibonacci"""
     if second >= n:
         print("Answer of the Problem 2nd is %d" % result)
         return
 
-    nx = first+second
+    nx = first + second
     if nx % 2 == 0:
         result += nx
     fibonacci(n, second, nx, result)

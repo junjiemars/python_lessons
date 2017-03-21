@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+""" p1
+"""
 import sys
 
 __author__ = 'South Mountain'
