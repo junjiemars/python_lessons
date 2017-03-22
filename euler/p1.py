@@ -14,7 +14,7 @@ def p1(n):
     """
     s = 0
     for i in range(n):
-        if (0 == (i%3)) or (0 == (i%5)):
+        if (i % 3 == 0) or (i % 5 == 0):
             s += i
     print('Answer of the Problem 1 when %d : %d' % (n, s))
 
